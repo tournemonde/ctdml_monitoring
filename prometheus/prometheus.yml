@@ -1,0 +1,17 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: "prometheus"
+
+    static_configs:
+      - targets: ['34.150.155.166:9090']
+      - targets: ['34.150.155.166:9091']
+      - targets: ['34.150.155.166:9092']
+  - job_name: "tns_app"
+
+    # Override global settings
+    scrape_interval: 5s
+
+    static_configs:
+      - targets: ["app:80"]
